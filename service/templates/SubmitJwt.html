@@ -1,0 +1,15 @@
+<html>
+    <head>
+      <title>Aker Solutions: Sesam entities viewer</title>
+    </head>
+    <body>
+    <h1>Enter jwt:</h1>
+    <form action="" method="post" novalidate>
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.jwt(size=1000, rows=15, cols=100) }}
+        </p>
+        <p>{{ form.submit() }}</p>
+    </form>
+    </body>
+</html>

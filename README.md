@@ -1,1 +1,1 @@
-# httpendpoint-entities-viewer
+# Http endpoint entities viewer
