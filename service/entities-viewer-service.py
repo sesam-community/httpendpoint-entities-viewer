@@ -15,6 +15,8 @@ secret_key = os.environ.get('SECRET_KEY', 'lasciate ogni sperantza voi chi entra
 
 @app.route("/<path:path>", methods=["GET", "POST"])
 def get(path):
+    def tuba():
+        yield "{ 'ok': true }"
     form = SubmitJwt()
 
     if form.validate_on_submit():
@@ -24,7 +26,7 @@ def get(path):
         #                       headers={'Accept': 'application/zip', 'Authorization': 'bearer ' + form.jwt.data})
 
         #json_response = json.dumps(request.json())
-        response = Response("{ 'ok': true }", content_type='application/json; charset=utf-8')
+        response = Response(tuba(), content_type='application/json; charset=utf-8')
         response.headers.add('content-length', len("{ 'ok': true }"))
         response.status_code = 200 #request.status_code
 
