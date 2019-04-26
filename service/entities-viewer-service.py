@@ -26,9 +26,9 @@ def get(path):
         #json_response = json.dumps(request.json())
         response = Response("{ 'ok': true }", content_type='application/json; charset=utf-8')
         response.headers.add('content-length', len("{ 'ok': true }"))
-        response.status_code = request.status_code
+        response.status_code = 200 #request.status_code
 
-        logger.info("Request status: " + str(request.status_code))
+        #logger.info("Request status: " + str(request.status_code))
         #if request.status_code != 200:
         #    logger.info(json_response)
 
