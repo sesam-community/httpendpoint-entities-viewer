@@ -10,6 +10,7 @@ from SubmitJwt import SubmitJwt
 app = Flask(__name__)
 logger = logger.Logger('entities-viewer-service')
 sesam_api = os.environ.get('SESAM_API_URL', 'http://sesam-node:9042/api')
+secret_key = os.environ.get('SECRET_KEY', 'lasciate ogni sperantza voi chi entrate qui')
 
 
 @app.route("/<path:path>", methods=["GET", "POST"])
@@ -37,7 +38,7 @@ def get(path):
 
 
 if __name__ == '__main__':
-    app.config['SECRET_KEY'] = 'lasciate ogni sperantza voi chi entrate qui'
+    app.config['SECRET_KEY'] = secret_key
     cherrypy.tree.graft(app, '/')
 
     # Set the configuration of the web server to production mode

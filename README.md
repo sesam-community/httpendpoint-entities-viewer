@@ -1,6 +1,8 @@
 # Http endpoint entities viewer
 Microservice to expose the json output from an http endpoint pipe.
 
+WARNING: BE SURE THAT YOU KNOW WHAT YOU ARE DOING IF USING THIS MICROSERVICE.
+
 [![Build Status](https://travis-ci.org/sesam-community/httpendpoint-entities-viewer.svg?branch=master)](https://travis-ci.org/sesam-community/httpendpoint-entities-viewer)
 
 system setup
@@ -21,6 +23,7 @@ system setup
 environment variables
 ```
 SESAM_API_URL: the url to the api endpoint of the node
+SECRET_KEY: secret key to use as cryptographic key for flask (to prevent CSRF attacks)
 ```
 
 node configuration
