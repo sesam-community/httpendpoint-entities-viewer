@@ -20,17 +20,17 @@ def get(path):
     if form.validate_on_submit():
         request_url = sesam_api + "/publishers/" + path + "/entities"
         logger.info("Requesting entities from url: " + request_url)
-        request = requests.get(url=request_url,
-                               headers={'Accept': 'application/zip', 'Authorization': 'bearer ' + form.jwt.data})
+        #request = requests.get(url=request_url,
+        #                       headers={'Accept': 'application/zip', 'Authorization': 'bearer ' + form.jwt.data})
 
-        json_response = json.dumps(request.json())
-        response = Response(json_response, content_type='application/json; charset=utf-8')
+        #json_response = json.dumps(request.json())
+        response = Response("{ 'ok': true }", content_type='application/json; charset=utf-8')
         response.headers.add('content-length', len(json_response))
         response.status_code = request.status_code
 
         logger.info("Request status: " + str(request.status_code))
-        if request.status_code != 200:
-            logger.info(json_response)
+        #if request.status_code != 200:
+        #    logger.info(json_response)
 
         return response
     else:
